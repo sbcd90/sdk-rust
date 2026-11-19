@@ -40,6 +40,9 @@ pub mod poem;
 #[cfg_attr(docsrs, doc(cfg(feature = "rdkafka")))]
 #[cfg(feature = "rdkafka")]
 pub mod rdkafka;
+#[cfg_attr(docsrs, doc(cfg(feature = "paho_mqtt")))]
+#[cfg(feature = "paho_mqtt")]
+pub mod paho_mqtt;
 #[cfg_attr(docsrs, doc(cfg(feature = "reqwest")))]
 #[cfg(feature = "reqwest")]
 pub mod reqwest;
@@ -63,7 +66,8 @@ pub(crate) mod kafka {
     feature = "warp",
     feature = "axum",
     feature = "poem",
-    feature = "rdkafka"
+    feature = "rdkafka",
+    feature = "paho_mqtt"
 ))]
 pub(crate) static CLOUDEVENTS_JSON_HEADER: &str = "application/cloudevents+json";
 #[cfg(feature = "reqwest")]
@@ -76,7 +80,8 @@ pub(crate) static CLOUDEVENTS_BATCH_JSON_HEADER: &str = "application/cloudevents
     feature = "warp",
     feature = "axum",
     feature = "poem",
-    feature = "rdkafka"
+    feature = "rdkafka",
+    feature = "paho_mqtt"
 ))]
 pub(crate) static CONTENT_TYPE: &str = "content-type";
 
@@ -88,7 +93,8 @@ pub(crate) static CONTENT_TYPE: &str = "content-type";
     feature = "warp",
     feature = "axum",
     feature = "poem",
-    feature = "rdkafka"
+    feature = "rdkafka",
+    feature = "paho_mqtt"
 ))]
 fn header_prefix(prefix: &str, name: &str) -> String {
     if name == "datacontenttype" {
